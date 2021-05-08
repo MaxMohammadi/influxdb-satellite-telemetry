@@ -41,3 +41,5 @@ ex. Username: telemetry
     Password: telemetry
     Org Name: Projects
     Bucket Name: Telemetry
+
+7. Determine a config
