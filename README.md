@@ -42,4 +42,4 @@ ex. Username: telemetry
     Org Name: Projects
     Bucket Name: Telemetry
 
-7. Determine a config
+7. Determine a config: use ```docker start``` for now
