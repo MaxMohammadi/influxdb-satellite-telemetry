@@ -43,3 +43,5 @@ ex. Username: telemetry
     Bucket Name: Telemetry
 
 7. Determine a config: use ```docker start 7b9767358f35ab522cf168b5a4995852944d25762fb70f301f23cacc9a940f4d``` for now
+
+8. Run the Influx container command line: ```docker exec -it 7b9767358f35ab522cf168b5a4995852944d25762fb70f301f23cacc9a940f4d /bin/sh```
