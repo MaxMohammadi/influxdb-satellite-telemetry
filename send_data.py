@@ -11,19 +11,20 @@ client = InfluxDBClient(url="http://localhost:8086", token=token)
 
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
-data = "mem,host=host1 used_percent=23.43234543"
-write_api.write(bucket, org, data)
-
+# change time to the new unix stamps in excel
 point = Point("Telemetry").tag(
     "host", "host1").field(
-        "used_percent", 23.43234543).time(
+        "longitude", 10000.43234543).time(
             datetime.utcnow(), WritePrecision.NS)
 
 write_api.write(bucket, org, point)
 
-sequence = ["mem,host=host1 used_percent=23.43234543",
-            "mem,host=host1 available_percent=15.856523"]
-write_api.write(bucket, org, sequence)
+# sequence = ["mem,host=host1 used_percent=10000.43234543"]
+# write_api.write(bucket, org, sequence)
 
-# query = f'from(bucket: \\"{bucket}\\") |> range(start: -1h)'
-# tables = client.query_api().query(query, org=org)
+query = '''
+from(bucket: "Telemetry")
+    |> range(start: -1m)
+'''
+
+print(client.query_api().query(query, org=org))
